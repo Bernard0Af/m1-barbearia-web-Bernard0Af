@@ -52,37 +52,37 @@ function retornaTodasBarbas() {
 }
 
 function criaPedido(nomeCliente, corteId, barbaId) {
-let corte = buscaCortePorId(corteId);
-let barba = buscaBarbaPorId(barbaId);
-let pedido = {
-    nome: nomeCliente,
-    pedidoCorte: corte.tipo,
-    pedidoCortePreco: corte.valor,
-    pedidoBarba: barba.tipo,
-    pedidoBarbaPreco: barba.valor,
-}
+    let corte = buscaCortePorId(corteId);
+    let barba = buscaBarbaPorId(barbaId);
+    let pedido = {
+        nome: nomeCliente,
+        pedidoCorte: corte.tipo,
+        pedidoCortePreco: corte.valor,
+        pedidoBarba: barba.tipo,
+        pedidoBarbaPreco: barba.valor,
+    }
     return pedido
 }
 
 function atualizarServico(lista, id, valor, tipo) {
-    if(lista = barbearia.cortes){
+    if(lista[0]){
         for(let i = 0; i < barbearia.cortes.length; i++){
-            if(barbearia.cortes[i].id  === id){
+            if(barbearia.cortes[i].id == id){
                 barbearia.cortes[i].tipo = tipo;
                 barbearia.cortes[i].valor = valor;
                 return barbearia.cortes
             }
-        }
-    }else if(lista = barbearia.barbas){
+        } 
+    }else if(lista[1]){
         for(let i = 0; i < barbearia.barbas.length; i++){
-            if(barbearia.barbas[i].id === id){
+            if(barbearia.barbas[i].id == id){
                 barbearia.barbas[i].tipo = tipo;
                 barbearia.barbas[i].valor = valor;
                 return barbearia.barbas
             }
-        }
+        } 
     }
-    return barbearia
+    return barbearia    
 }
 
 function calculaTotal(pedido) {
@@ -91,3 +91,4 @@ function calculaTotal(pedido) {
     const total = precoBarba + precoCorte
     return total
 }
+
